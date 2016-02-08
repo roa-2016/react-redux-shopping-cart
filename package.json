@@ -1,0 +1,38 @@
+{
+  "name": "shopping-cart",
+  "version": "1.0.0",
+  "description": "shopping cart",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo . -d --serve bundle.js --live",
+    "build": "browserify . -o bundle.js -g uglifyify",
+    "test": "browserify test.js | smokestack | tap-spec",
+    "dist": "mkdir -p dist && bash -c 'cp *.{js,html,css} dist'",
+    "push": "gh-pages -d dist",
+    "deploy": "npm run build && npm run dist && npm run push"
+  },
+  "browserify": {
+    "transform": []
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshuavial/shopping-cart"
+  },
+  "author": "joshuavial",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshuavial/shopping-cart/issues"
+  },
+  "homepage": "https://github.com/joshuavial/shopping-cart",
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "^10.0.0",
+    "budo": "^4.0.0",
+    "gh-pages": "^0.3.0",
+    "smokestack": "^3.3.0",
+    "tap-spec": "^4.0.2",
+    "tape": "^4.0.0",
+    "uglifyify": "^3.0.1",
+    "watchify": "^3.1.0"
+  }
+}
