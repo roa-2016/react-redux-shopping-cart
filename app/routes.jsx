@@ -1,5 +1,4 @@
-import React, {Component} from 'react'
-import { render } from 'react-dom'
+import React from 'react'
 import { Router, Route } from 'react-router'
 
 import ProductList from './components/product-list.jsx'
@@ -11,4 +10,3 @@ export default (
     <Route path='/products/:id' component={ProductDetail}/>
   </Router>
 )
-
