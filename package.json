@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/joshuavial/shopping-cart",
   "dependencies": {
+    "babel-core": "^6.5.1",
     "history": "^1.17.0"
   },
   "devDependencies": {

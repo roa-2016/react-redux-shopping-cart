@@ -9,7 +9,10 @@ export default class App extends Component {
     return (
       <div>
         <div id='main'>{routes}</div>
-        <div id='side'><CartSummary /><WishlistSummary /></div>
+        <div id='side'>
+          <CartSummary />
+          <WishlistSummary />
+        </div>
       </div>
     )
   }
