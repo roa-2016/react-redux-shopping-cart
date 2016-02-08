@@ -6,7 +6,7 @@ import chaiEnzyme from 'chai-enzyme'
 chai.use(chaiEnzyme())
 
 import { mount, render, shallow } from 'enzyme'
-import App from '../../components/app.jsx'
+import App from '../../app/components/app.jsx'
 
 describe('<App />', () => {
   it('says hello world', () => {
