@@ -11,10 +11,15 @@ class ProductDetail extends Component {
       e.preventDefault()
       this.props.addToCart(id)
     }
+    const addToWishlist = (e) => {
+      e.preventDefault()
+      this.props.addToWishlist(id)
+    }
     return (
       <div className='product' id={id}>
         <div> Detailed view of a product {name}</div>
         <div><a href='' onClick={addToCart}>Add to Cart</a></div>
+        <div><a href='' onClick={addToWishlist}>Add to Wishlist</a></div>
         <div><Link to='/'>View all</Link></div>
       </div>
     )
@@ -29,9 +34,15 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addToCart: (id) => { 
+    addToCart: (id) => {
       dispatch({
         type: 'ADD_PRODUCT_TO_CART',
+        id: parseInt(id)
+      })
+    },
+    addToWishlist: (id) => {
+      dispatch({
+        type: 'ADD_PRODUCT_TO_WISHLIST',
         id: parseInt(id)
       })
     }

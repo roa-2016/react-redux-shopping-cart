@@ -1,17 +1,17 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
-class CartSummary extends Component {
+class WishList extends Component {
   render() {
     const products = this.props.products.filter(p => {
-      return this.props.cart.includes(p.get('id'))
+      return this.props.wishlist.includes(p.get('id'))
     })
     return (
-      <div id='cart'>
-        <h4>Shopping Cart</h4>
+      <div id='wishlist'>
+        <h4>Wish List</h4>
         <div className='products'>
           {products.map((product, idx) => {
-            return <div key={idx}>{product.get('name')} <button>Remove from cart</button></div>
+            return <div key={idx}>{product.get('name')} <button>Remove from Wishlist</button></div>
           })}
         </div>
       </div>
@@ -20,21 +20,15 @@ class CartSummary extends Component {
 }
 
 
-// function removeItemFromCart(state) {
-//   const removeItem = state.
-//   return {
-//
-//     products: state.get('products')
-//   }
-// }
+
 
 function mapStateToProps(state) {
   return {
     products: state.get('products'),
-    cart: state.get('cart')
+    wishlist: state.get('wishlist')
   };
 }
 
 export default connect(
   mapStateToProps
-)(CartSummary)
+)(WishList)

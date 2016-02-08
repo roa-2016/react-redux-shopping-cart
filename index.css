@@ -14,3 +14,10 @@ main {
   float: right;
 
 }
+
+#wishlist {
+  width: 25%;
+  float: right;
+  margin-top: 8%;
+  margin-right: -12%
+}
