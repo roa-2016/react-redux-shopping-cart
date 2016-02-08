@@ -1,8 +1,8 @@
 import React from 'react'
 import { Router, Route } from 'react-router'
 
-import ProductList from './components/product-list.jsx'
-import ProductDetail from './components/product-detail.jsx'
+import ProductList from './product-list.jsx'
+import ProductDetail from './product-detail.jsx'
 
 export default (
   <Router>

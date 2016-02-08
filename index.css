@@ -4,3 +4,13 @@ main {
 #productList .product {
   margin-bottom:20px;
 }
+
+#main {
+  width: 75%;
+  float: left;
+}
+#side {
+  width: 25%;
+  float: right;
+
+}
