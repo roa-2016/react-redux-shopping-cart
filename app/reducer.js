@@ -1,5 +1,18 @@
 import {fromJS} from 'immutable'
 
-export default (store, action) => {
-  return fromJS({products: [1,2,3,4,5]})
+const INITIAL_STATE = fromJS({
+  products: [
+    {id: 1, name:'spaghetti'},
+    {id: 2, name:'gold'},
+    {id: 3, name:'rake'},
+    {id: 4, name:'car'},
+    {id: 5, name:'falcon'}
+  ]
+})
+
+export default (state = INITIAL_STATE, action) => {
+  switch(action.type) {
+    default:
+      return state
+  }
 }

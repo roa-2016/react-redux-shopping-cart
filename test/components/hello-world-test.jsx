@@ -6,11 +6,11 @@ import chaiEnzyme from 'chai-enzyme'
 chai.use(chaiEnzyme())
 
 import { mount, render, shallow } from 'enzyme'
-import App from '../../app/components/app.jsx'
+import HelloWorld from '../../app/components/hello-world.jsx'
 
-describe('<App />', () => {
+describe('<HelloWorld />', () => {
   it('says hello world', () => {
-    const wrapper = shallow(<App />) 
+    const wrapper = shallow(<HelloWorld />) 
     expect(wrapper).to.contain('Hello World')
   })
 })
