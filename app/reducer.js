@@ -8,13 +8,16 @@ const INITIAL_STATE = fromJS({
     {id: 4, name:'car'},
     {id: 5, name:'falcon'}
   ],
-  cart: [1,4]
+  cart: [1,4],
+  wishlist: []
 })
 
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case 'ADD_PRODUCT_TO_CART':
       return state.set('cart', state.get('cart').push(action.id))
+    case 'ADD_PRODUCT_TO_WISHLIST':
+      return state.set('wishlist', state.get('wishlist').push(action.id))
     default:
       return state
   }
