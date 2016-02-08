@@ -1,1 +1,1 @@
-console.log("welcome to jvsc-client")
+console.log("welcome to shopping-cart")
