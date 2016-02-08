@@ -11,6 +11,6 @@ import App from '../../components/app.jsx'
 describe('<App />', () => {
   it('says hello world', () => {
     const wrapper = shallow(<App />) 
-    expect(wrapper.contains('Hello World')).to.equal(true)
+    expect(wrapper).to.contain('Hello World')
   })
 })
