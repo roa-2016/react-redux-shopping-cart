@@ -18,6 +18,8 @@ export default (state = INITIAL_STATE, action) => {
       return state.set('cart', state.get('cart').push(action.id))
     case 'ADD_PRODUCT_TO_WISHLIST':
       return state.set('wishlist', state.get('wishlist').push(action.id))
+    case 'REMOVE_PRODUCT_FROM_CART':
+      return state.set('cart', state.get('cart').delete(state.get('cart').indexOf(action.id)))
     default:
       return state
   }
