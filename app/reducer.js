@@ -2,11 +2,11 @@ import {fromJS} from 'immutable'
 
 const INITIAL_STATE = fromJS({
   products: [
-    {id: 1, name:'spaghetti'},
-    {id: 2, name:'gold'},
-    {id: 3, name:'rake'},
-    {id: 4, name:'car'},
-    {id: 5, name:'falcon'}
+    {id: 1, price: '$4.00', name:'spaghetti'},
+    {id: 2, price: '$4.00', name:'gold'},
+    {id: 3, price: '$20.00', name:'rake'},
+    {id: 4, price: '$4000.00', name:'car'},
+    {id: 5, price: '$4.00', name:'falcon'}
   ],
   cart: [1,4]
 })
