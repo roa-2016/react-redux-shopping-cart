@@ -3,10 +3,10 @@ import {fromJS, update} from 'immutable'
 const INITIAL_STATE = fromJS({
   products: [
     {id: 1, name:'spaghetti', counter: 1},
-    {id: 2, name:'gold', counter: 1},
-    {id: 3, name:'rake', counter: 1},
+    {id: 2, name:'gold', counter: 0},
+    {id: 3, name:'rake', counter: 0},
     {id: 4, name:'car', counter: 1},
-    {id: 5, name:'falcon', counter: 1}
+    {id: 5, name:'falcon', counter: 0}
   ],
   cart: [1,4]
 })
