@@ -22,5 +22,18 @@ describe('Reducer', () => {
       expect(state.get('cart').size).to.equal(3)
       expect(state.get('cart')).to.include(3)
     })
+     it('adds a product to the shopping cart and adds a tally ', () => {
+      const id = 3
+      const state = reducer(undefined, {
+        type: 'ADD_PRODUCT_TO_CART', 
+        id: id
+      })
+      const nextState = reducer(state, {
+        type: 'ADD_PRODUCT_TO_CART', 
+        id: id
+      })
+      expect(state.getIn(['products', id-1, 'counter'])).to.equal(1)
+      expect(nextState.getIn(['products', id-1, 'counter'])).to.equal(2)
+    })
   })
 })

@@ -14,10 +14,9 @@ const INITIAL_STATE = fromJS({
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case 'ADD_PRODUCT_TO_CART':
-      let product = state.get('products').filter((product) => product.get('id') === action.id).get('0')
-      let counter = product.get('counter') + 1
+      let product = state.get('products').filter((product) => product.get('id') === action.id).get(0)
       return state.set('cart', state.get('cart').push(action.id))
-                  .setIn(['products', action.id-1, 'counter'], counter)
+             .setIn(['products', action.id-1, 'counter'], product.get('counter') + 1)
     default:
       return state
   }
