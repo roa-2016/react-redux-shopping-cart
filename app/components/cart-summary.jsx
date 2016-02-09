@@ -11,7 +11,7 @@ class CartSummary extends Component {
         <h4>Shopping Cart</h4>
         <div className='products'>
           {products.map((product, idx) => {
-            return <div key={idx}>{product.get('name')}</div>
+            return <div key={idx}>{product.get('name') + ' x ' + product.get('counter')}</div>
           })}
         </div>
       </div>

@@ -24,7 +24,10 @@
     "url": "https://github.com/joshuavial/shopping-cart/issues"
   },
   "homepage": "https://github.com/joshuavial/shopping-cart",
-  "dependencies": {},
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "history": "^2.0.0"
+  },
   "devDependencies": {
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
