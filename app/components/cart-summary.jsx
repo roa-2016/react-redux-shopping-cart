@@ -11,7 +11,7 @@ class CartSummary extends Component {
         <h4>Shopping Cart</h4>
         <div className='products'>
           {products.map((product, idx) => {
-            return <div key={idx}>{product.get('name')} amountOfProducts++</div>
+            return <div key={idx}>{product.get('name')}</div>
           })}
         </div>
       </div>
@@ -25,6 +25,18 @@ function mapStateToProps(state) {
     cart: state.get('cart')
   };
 }
+
+function counter = ({
+  value,
+  onIncrement,
+  onDecrement
+}) => (
+  <div>
+    <h1>{value}</h1>
+    <button onClick={onIncrement}>+</button>
+    <button onClick={onDecrement}>+</button>
+  </div>
+)
 
 export default connect(
   mapStateToProps
