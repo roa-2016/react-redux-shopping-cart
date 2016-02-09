@@ -29,7 +29,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addToCart: (id) => { 
+    addToCart: (id) => {
       dispatch({
         type: 'ADD_PRODUCT_TO_CART',
         id: parseInt(id)
@@ -37,6 +37,8 @@ function mapDispatchToProps(dispatch) {
     }
   }
 }
+
+
 
 
 export default connect(
