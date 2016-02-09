@@ -6,6 +6,9 @@ class CartSummary extends Component {
     const products = this.props.products.filter(p => {
       return this.props.cart.includes(p.get('id'))
     })
+    const cartArray = this.props.cart.toJS()
+    const counts = amountOfItem(cartArray)
+    console.log(counts)
     return (
       <div id='cart'>
         <h4>Shopping Cart</h4>
@@ -17,7 +20,8 @@ class CartSummary extends Component {
             return(
               <div key={idx}>
                 {product.get('name')}
-                <button onClick={removeProduct}>Delete</button>
+                <span className='amount'>Amount:{counts[product.get('id')]}</span>
+                <button className='deleteButton' onClick={removeProduct}>Delete</button>
               </div>
             )
           })}
@@ -25,6 +29,20 @@ class CartSummary extends Component {
       </div>
     )
   }
+}
+
+function amountOfItem(array){
+  let result = {}
+
+  if(array instanceof Array)
+    array.forEach(function (v, i){
+      if (!result[v]) {
+        result[v] = 1
+      } else {
+        result[v]++
+      }
+    })
+  return result
 }
 
 function mapStateToProps(state) {
@@ -48,4 +66,5 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
+  // amountOfItem
 )(CartSummary)
