@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import routes from './routes.jsx'
 import CartSummary from './cart-summary.jsx'
 import WishlistSummary from './wishlist-summary.jsx'
-
+import {Link } from 'react-router'
 export default class App extends Component {
 
   render() {

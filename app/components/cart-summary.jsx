@@ -8,7 +8,7 @@ class CartSummary extends Component {
     const products = this.props.products.filter(p => {
       return this.props.cart.includes(p.get('id'))
     })
-  
+
     return (
       <div id='cart'>
         <h4>Shopping Cart</h4>
@@ -18,6 +18,8 @@ class CartSummary extends Component {
           )}
         </div>
         <Subtotal />
+          <a href='/#/checkout'>Checkout</a>
+
       </div>
     )
   }

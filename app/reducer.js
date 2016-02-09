@@ -1,4 +1,4 @@
-import {fromJS} from 'immutable'
+import {fromJS, List} from 'immutable'
 
 const INITIAL_STATE = fromJS({
   products: [
@@ -15,17 +15,18 @@ const INITIAL_STATE = fromJS({
 
 function removeItemFromCart (state, id) {
   const price = state.get('products').filter(p => { return p.get('id') === id}).first().get('price')
-  return state.set('cart', state.get('cart').filter((i, index) => {
+  const updatedCart = state.set('cart', state.get('cart').filter((i, index) => {
     return index !== state.get('cart').lastIndexOf(id)
-  })).set('subtotal',
-    state.get('subtotal') - price)
+  }))
+  const updatedSubtotal = updatedCart.set('subtotal', state.get('subtotal') - price)
+  return updatedSubtotal
 }
 
 function addItemToCart(state, id) {
   const price = state.get('products').filter(p => { return p.get('id') === id}).first().get('price')
-  return state.set('cart', state.get('cart').push(id)).set('subtotal',
-    state.get('subtotal') + price
-  )
+  const updatedCart = state.set('cart', state.get('cart').push(id))
+  const updatedSubtotal = updatedCart.set('subtotal', state.get('subtotal') + price)
+  return updatedSubtotal
 }
 
 
@@ -37,6 +38,11 @@ export default (state = INITIAL_STATE, action) => {
       return removeItemFromCart(state, action.id)
     case 'ADD_PRODUCT_TO_WISHLIST':
       return state.set('wishlist', state.get('wishlist').push(action.id))
+    case 'SET_USER':
+      return state.set('user', action.user)
+    case 'CHECKOUT':
+      return state.set('cart', List()).set('subtotal', 0)
+
   }
   return state
 }
