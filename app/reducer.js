@@ -14,10 +14,11 @@ const INITIAL_STATE = fromJS({
 })
 
 function removeItemFromCart (state, id) {
-  console.log(state.cart.findIndex(i => {
-    i === id
-  }))
-  return state
+  const price = state.get('products').filter(p => { return p.get('id') === id}).first().get('price')
+  return state.set('cart', state.get('cart').filter((i, index) => {
+    return index !== state.get('cart').lastIndexOf(id)
+  })).set('subtotal',
+    state.get('subtotal') - price)
 }
 
 function addItemToCart(state, id) {
@@ -33,7 +34,7 @@ export default (state = INITIAL_STATE, action) => {
     case 'ADD_PRODUCT_TO_CART':
       return addItemToCart(state, action.id)
     case 'REMOVE_PRODUCT_FROM_CART':
-      return removeItemToCart(state, action.id)
+      return removeItemFromCart(state, action.id)
     case 'ADD_PRODUCT_TO_WISHLIST':
       return state.set('wishlist', state.get('wishlist').push(action.id))
   }
