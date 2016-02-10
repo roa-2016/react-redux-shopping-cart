@@ -11,7 +11,10 @@ class WishList extends Component {
         <h4>Wish List</h4>
         <div className='products'>
           {products.map((product, idx) => {
-            return <div key={idx}>{product.get('name')} <button>Remove from Wishlist</button></div>
+            let removeProductWishlist = (e) => {
+              this.props.removeProductWishlist(product.get('id'))
+            }
+            return <div key={idx}>{product.get('name')} ${product.get('price')} <button onClick={removeProductWishlist}>Remove from Wishlist</button></div>
           })}
         </div>
       </div>
@@ -26,9 +29,21 @@ function mapStateToProps(state) {
   return {
     products: state.get('products'),
     wishlist: state.get('wishlist')
-  };
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    removeProductWishlist: (id) => {
+      dispatch({
+        type: 'REMOVE_PRODUCT_FROM_WISHLIST',
+        id: parseInt(id)
+      })
+    }
+  }
 }
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(WishList)

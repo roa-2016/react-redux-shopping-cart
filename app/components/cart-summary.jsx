@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import calculatePrice from '../lib/subtotalCalc.js'
 
 class CartSummary extends Component {
   render() {
@@ -24,20 +25,12 @@ class CartSummary extends Component {
           <h2>subtotal</h2>
           <p>${subtotal}</p>
         </div>
+        <button>Checkout</button>
       </div>
     )
   }
 }
 
-function calculatePrice(products, cart) {
-  let subtotal = 0
-  products.forEach(function(product) {
-    if(cart.indexOf(product.get('id')) > -1 ) {
-      subtotal += product.get('price')
-    }
-  })
-  return subtotal
-}
 
 function mapStateToProps(state) {
   return {
