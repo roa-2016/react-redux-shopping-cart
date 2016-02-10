@@ -24,7 +24,9 @@
     "url": "https://github.com/joshuavial/shopping-cart/issues"
   },
   "homepage": "https://github.com/joshuavial/shopping-cart",
-  "dependencies": {},
+  "dependencies": {
+    "history": "^1.17.0"
+  },
   "devDependencies": {
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
@@ -36,7 +38,6 @@
     "chai-enzyme": "^0.3.0",
     "enzyme": "^1.5.0",
     "gh-pages": "^0.3.0",
-    "history": "^2.0.0",
     "immutable": "^3.7.6",
     "mocha": "^2.4.5",
     "react": "^0.14.7",

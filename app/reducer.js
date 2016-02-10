@@ -8,8 +8,8 @@ const INITIAL_STATE = fromJS({
     {id: 4, name:'car'},
     {id: 5, name:'falcon'}
   ],
-  cart: [1,4],
-  amountOfProducts: 0
+  cart: [{id: 1, qty: 6},4],
+  amountOfProduct: 0
 })
 
 export default (state = INITIAL_STATE, action) => {
