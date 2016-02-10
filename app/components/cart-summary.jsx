@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router'
 import {connect} from 'react-redux'
 
 class CartSummary extends Component {
@@ -8,14 +9,16 @@ class CartSummary extends Component {
     })
     return (
       <div id='cart'>
-        <h4>Shopping Cart</h4>
-        <div className='products'>
-          {products.map((product, idx) => {
-            return <div key={idx}>{product.get('name')}, {product.get('price')}</div>
-          })}
-        </div>
+      <h4>Shopping Cart</h4>
+      <div className='products'>
+      {products.map((product, idx) => {
+        return <div key={idx}>{product.get('name')}, {product.get('price')}</div>
+      })}
+            <div><a href='/#/checkout'>Checkout</a></div>
+
       </div>
-    )
+      </div>
+      )
   }
 }
 
@@ -28,4 +31,4 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps
-)(CartSummary)
+  )(CartSummary)

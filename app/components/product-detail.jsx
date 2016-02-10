@@ -16,6 +16,7 @@ class ProductDetail extends Component {
         <div> Detailed view of a product {name}</div>
         <div><a href='' onClick={addToCart}>Add to Cart</a></div>
         <div><Link to='/'>View all</Link></div>
+        <Link to='/checkout'>Checkout</Link>
       </div>
     )
   }
