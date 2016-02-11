@@ -10,5 +10,4 @@ const app = (state)=>{
 
 document.addEventListener('DOMContentLoaded', () =>{
   vdux({reducer: reducer, app: app })
- 
 })
