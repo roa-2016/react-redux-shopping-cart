@@ -1,4 +1,4 @@
-var h = require('virtual-dom/h');
+import h from 'vdux/element'
 
 module.exports = function render(state) {
   return h(
