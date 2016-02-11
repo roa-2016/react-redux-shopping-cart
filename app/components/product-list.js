@@ -5,7 +5,6 @@ function render(state) {
   const productSummaries = state.map( product => {
     return ProductSummary(product)
   })
-  console.log(productSummaries.toArray());
-  return h('div', productSummaries.toArray()) 
+  return h('div',{class: 'products'}, productSummaries.toArray()) 
 }
 export default render

@@ -3,7 +3,7 @@ import ProductList from './product-list'
 
 module.exports = function render(state) {
   return h(
-    "div",
+    "div",{class: 'app'},
     ProductList(state.get('products'))
   )
 }
