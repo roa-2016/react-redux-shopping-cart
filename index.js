@@ -1,13 +1,8 @@
 import vdux from 'vdux/dom'
 
 import reducer from './app/reducer.js'
-import App from './app/components/hello-world.jsx'
-
-const app = (state)=>{
-  console.log(state);
-  return App(state)
-}
+import app from './app/components/app.js'
 
 document.addEventListener('DOMContentLoaded', () =>{
-  vdux({reducer: reducer, app: app })
+  vdux({reducer: reducer, app: app, initialState: reducer(undefined, {})})
 })

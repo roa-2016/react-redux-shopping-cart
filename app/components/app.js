@@ -1,8 +1,10 @@
 import h from 'vdux/element'
+import ProductList from './product-list'
 
 module.exports = function render(state) {
   return h(
-    "div", {style: {height: 100, width: 100}}  
+    "div",
+    ProductList(state.get('products'))
   )
 }
 

@@ -1,17 +1,8 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router'
+import h from 'vdux/element'
 
-export default class ProductSummary extends Component {
-  render() {
-    const name = this.props.product.get('name')
-    const id = this.props.product.get('id')
-    return (
-      <div className='product'>
-        <div>{name}</div>
-        <div>
-          <Link to={`/products/${id}`}>View Details</Link>
-        </div>
-      </div>
-    )
-  }
+export default function render(state) {
+  const name = state.get('name')
+  const id = state.get('id')
+    return h('div.product',[name]
+     )
 }
