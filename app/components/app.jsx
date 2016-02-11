@@ -1,16 +1,8 @@
-import React, {Component} from 'react'
-import routes from './routes.jsx'
-import CartSummary from './cart-summary.jsx'
+var h = require('virtual-dom/h');
 
-export default class App extends Component {
-
-  render() {
-    return (
-      <div>
-        <div id='main'>{routes}</div>
-        <div id='side'><CartSummary /></div>
-      </div>
-    )
-  }
-
+module.exports = function render(state) {
+  return h(
+    "div", {style: {height: 100, width: 100}}  
+  )
 }
+

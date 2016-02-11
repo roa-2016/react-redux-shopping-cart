@@ -11,7 +11,7 @@ const INITIAL_STATE = fromJS({
   cart: [1,4]
 })
 
-export default (state = INITIAL_STATE, action) => {
+function reducer(state = INITIAL_STATE, action) {
   switch(action.type) {
     case 'ADD_PRODUCT_TO_CART':
       return state.set('cart', state.get('cart').push(action.id))
@@ -19,3 +19,5 @@ export default (state = INITIAL_STATE, action) => {
       return state
   }
 }
+
+module.exports = reducer

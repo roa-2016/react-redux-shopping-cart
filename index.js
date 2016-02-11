@@ -1,17 +1,15 @@
-import React from 'react'
-import { render } from 'react-dom'
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
+import {createStore} from 'redux'
+import vdux from 'vdux/dom'
 
-import reducer from './app/reducer'
-import App from './app/components/app.jsx'
+import reducer from './app/reducer.js'
+import App from './app/components/app.js'
 
 const store = createStore(reducer)
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>, 
-  document.getElementById('app')
-)
+const app = (state)=>{
+  return App(state)
+}
 
+document.addEventListener('DOMContentLoaded', () =>{
+  vdux({reducer: reducer, app: app })
+})
