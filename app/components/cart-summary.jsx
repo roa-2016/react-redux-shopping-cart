@@ -8,7 +8,7 @@ class CartSummary extends Component {
     const products = this.props.products.filter(p => {
       return this.props.cart.includes(p.get('id'))
     })
-    const removeProduct = (e) => {
+    const removeProduct = (e, id) => {
       e.preventDefault()
       this.props.removeProduct(id)
     }
@@ -18,7 +18,13 @@ class CartSummary extends Component {
           <div><a href='#/checkout'>Checkout</a></div>
         <div className='products'>
           {products.map((product, idx) => {
-            return <div key={idx}>{product.get('qty')+ 1} {product.get('name')}<button id="plus" >+</button><button id="minus" onClick={removeProduct} >-</button></div>
+            return <div key={idx}>{product.get('qty')+ 1}
+              <span> </span>
+               {product.get('name')}
+               <span> </span>
+               <button id="plus">+</button>
+               <button id="minus" onClick={removeProduct} >-</button>
+               </div>
           })}
         </div>
       </div>
