@@ -1,7 +1,7 @@
 import vdux from 'vdux/dom'
 
 import reducer from './app/reducer.js'
-import App from './app/components/app.js'
+import App from './app/components/hello-world.jsx'
 
 const app = (state)=>{
   console.log(state);
