@@ -14,7 +14,6 @@ const INITIAL_STATE = fromJS({
 })
 
 function reducer(state = INITIAL_STATE, action) {
-  console.log(action);
   switch(action.type) {
     case URL_DID_CHANGE:
       return state.set('url', action.payload)

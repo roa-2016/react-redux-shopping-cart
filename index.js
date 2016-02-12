@@ -1,11 +1,21 @@
 import vdux from 'vdux/dom'
+import h from 'vdux/element'
 
+import App from './app/components/app.js'
 import reducer from './app/reducer.js'
 import middleware from './app/middleware.js'
-import app from './app/components/app.js'
 
-app.onCreate()
 
 document.addEventListener('DOMContentLoaded', () =>{
-  vdux({middleware: middleware, reducer: reducer, app: app.render, initialState: reducer(undefined, {})})
+  return vdux({
+    middleware,
+    reducer,
+    app,
+    node: document.body,
+    initialState: reducer(undefined, {})
+  })
 })
+
+function app (state) {
+  return h(App, state, [])
+}

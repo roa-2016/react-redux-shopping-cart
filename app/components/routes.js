@@ -5,9 +5,10 @@ import ProductDetail from './product-detail.js'
 
 
 const router = enroute({
-  '/': (params, state)=>{return ProductList(state.get('products'))},
-
-  '/products': (params, state)=>{
+  '/': (params, state)=>{
+     return ProductList(state.get('products'))
+  },
+  '/products/:id': (params, state)=>{
     const product = state.get('products').find((product)=>{return product.get('id')=== Number(params.id)})
     return ProductDetail(product)
   }})
