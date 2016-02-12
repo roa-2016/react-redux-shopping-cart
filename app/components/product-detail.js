@@ -1,9 +1,4 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router'
-import {connect} from 'react-redux'
-
-class ProductDetail extends Component {
-  render() {
+  function render() {
     const {id} = this.props.params
     const product = this.props.products.filter(p => p.get('id') == id ).first()
     const name = product.get('name')
@@ -19,27 +14,5 @@ class ProductDetail extends Component {
       </div>
     )
   }
-}
-
-function mapStateToProps(state) {
-  return {
-    products: state.get('products')
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    addToCart: (id) => { 
-      dispatch({
-        type: 'ADD_PRODUCT_TO_CART',
-        id: parseInt(id)
-      })
-    }
-  }
-}
 
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ProductDetail)
