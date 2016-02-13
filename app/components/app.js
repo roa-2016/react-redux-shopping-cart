@@ -11,7 +11,7 @@ function render(state) {
     {class: 'main'},
     [
       CartSummary(state.props),
-      router(state.props.get('url'), state.props),
+      router(state.props.url, state.props),
     ]
   )
 }

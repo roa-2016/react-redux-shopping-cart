@@ -1,13 +1,14 @@
 import h from 'vdux/element'
 
 function render(state) {
-  const products = state.get('cart').map(productId => {
-    return state.get('products').find(product => product.get('id') === Number(productId) )
+  console.log(state);
+  const products = state.cartItems.map(item => {
+    return state.products.find(product => product.id === item.id )
   })
   return h(
     'div', {id: 'cart'}, [
       h('h4', {}, ['Shopping Cart']),
-      ...products.map(product => h('div', {}, product.get('name'))).toArray()
+      ...products.map(product => h('div', {}, product.name))
      ]) 
 }
 

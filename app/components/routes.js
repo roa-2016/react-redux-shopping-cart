@@ -6,10 +6,10 @@ import ProductDetail from './product-detail.js'
 
 const router = enroute({
   '/': (params, state)=>{
-     return ProductList(state.get('products'))
+     return ProductList(state.products)
   },
   '/products/:id': (params, state)=>{
-    const product = state.get('products').find((product)=>{return product.get('id')=== Number(params.id)})
+    const product = state.products.find((product)=>{return product.id === Number(params.id)})
     return ProductDetail(product)
   }})
 

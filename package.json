@@ -43,9 +43,11 @@
     "redux-effects-location": "^0.1.14",
     "redux-logger": "^2.5.2",
     "redux-multi": "^0.1.12",
+    "reselect": "^2.0.3",
     "smokestack": "^3.3.0",
     "tap-spec": "^4.0.2",
     "tape": "^4.0.0",
+    "tcomb": "^2.7.0",
     "uglifyify": "^3.0.1",
     "vdux": "^2.2.4",
     "watchify": "^3.1.0"
