@@ -6,11 +6,12 @@ import router from './routes.js'
 import { initialiseApp } from '../actions.js'
 
 function render(state) {
+  console.log(state);
   return h(
     'div', 
     {class: 'main'},
     [
-      CartSummary(state.props),
+      h(CartSummary, state.props),
       router(state.props.url, state.props),
     ]
   )
