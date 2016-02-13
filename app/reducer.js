@@ -1,5 +1,5 @@
 import {fromJS} from 'immutable'
-import {URL_DID_CHANGE} from './actions'
+import {URL_DID_CHANGE, ADD_PRODUCT_TO_CART} from './actions'
 
 const INITIAL_STATE = fromJS({
   products: [
@@ -17,8 +17,8 @@ function reducer(state = INITIAL_STATE, action) {
   switch(action.type) {
     case URL_DID_CHANGE:
       return state.set('url', action.payload)
-    case 'ADD_PRODUCT_TO_CART':
-      return state.set('cart', state.get('cart').push(action.id))
+    case ADD_PRODUCT_TO_CART:
+      return state.set('cart', state.get('cart').push(action.payload.id))
     default:
       return state
   }

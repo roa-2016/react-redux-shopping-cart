@@ -1,5 +1,7 @@
 import { bindUrl } from 'redux-effects-location'
+
 const URL_DID_CHANGE = 'URL_DID_CHANGE'
+const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART'
 
 function initialiseApp(){
   return [
@@ -14,7 +16,17 @@ function urlDidChange(url) {
  } 
 }
 
+function addProductToCart(product){
+  return {
+    type: ADD_PRODUCT_TO_CART,
+    payload: product
+  }
+}
+
 export {
   initialiseApp,
-  URL_DID_CHANGE
+  addProductToCart,
+
+  URL_DID_CHANGE,
+  ADD_PRODUCT_TO_CART
 }

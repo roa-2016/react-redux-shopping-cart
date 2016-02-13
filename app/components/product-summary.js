@@ -1,7 +1,7 @@
 import h from 'vdux/element'
 
 export default function render(state) {
-  const name = state.get('name')
-  const id = state.get('id')
+  const name = state.props.get('name')
+  const id = state.props.get('id')
     return h('a', {href: '/products/' + id}, [name])
 }
