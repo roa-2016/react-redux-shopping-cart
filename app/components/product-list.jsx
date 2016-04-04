@@ -7,7 +7,14 @@ class ProductList extends Component {
     const productSummaries = this.props.products.map( product => {
       return <ProductSummary key={product.get('id')} product={product} />
     })
-    return <div id='productList'> { productSummaries } </div>
+    return (
+      <tr>
+        <td>{ productSummaries }</td>
+      </tr>
+
+      )
+
+    // <div id='productList'> { productSummaries } </div>
   }
 }
 

@@ -14,10 +14,13 @@ class CartSummary extends Component {
             return <div key={idx}>{product.get('name')}</div>
           })}
         </div>
+
       </div>
     )
   }
 }
+
+
 
 function mapStateToProps(state) {
   return {
