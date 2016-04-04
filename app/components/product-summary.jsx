@@ -10,11 +10,9 @@ export default class ProductSummary extends Component {
 
     return (
       <div className='product'>
-
-        <div> <h3>{name}</h3>
-        <Link to={`/products/${id}`}>View Details</Link></div>
-        <div>
-
+        <div> 
+        <h3>{name}</h3>
+        <Link to={`/products/${id}`}>View Details</Link>
         </div>
       </div>
     )

@@ -10,8 +10,8 @@ class CartSummary extends Component {
       <div id='cart'>
         <h4>Shopping Cart</h4>
         <div className='products'>
-          {products.map((product, idx) => {
-            return <div key={idx}>{product.get('name')}</div>
+            {products.map((product, idx) => {
+            return <div key={idx}>{product.get('name')+ 'Qty'+ itemCount(this.props.cart, product.get('id'))}</div>
           })}
         </div>
 
@@ -28,6 +28,17 @@ function mapStateToProps(state) {
     cart: state.get('cart')
   };
 }
+
+function itemCount(cart, id) {
+  var qty = 0
+  for (var i=0; i<cart.size; i++) {
+    if (cart.get(i) == id) {
+      qty++
+    }
+  }
+  return qty
+}
+
 
 export default connect(
   mapStateToProps
