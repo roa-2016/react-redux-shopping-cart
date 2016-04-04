@@ -8,13 +8,13 @@ class ProductList extends Component {
       return <ProductSummary key={product.get('id')} product={product} />
     })
     return (
-      <tr>
-        <td>{ productSummaries }</td>
-      </tr>
-
+      // <tr>
+      //   <td>{ productSummaries }</td>
+      // </tr>
+      <div id='productList'> { productSummaries } </div>
       )
 
-    // <div id='productList'> { productSummaries } </div>
+
   }
 }
 
