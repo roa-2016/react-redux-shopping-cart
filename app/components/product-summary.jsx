@@ -6,12 +6,14 @@ export default class ProductSummary extends Component {
     const name = this.props.product.get('name')
     const id = this.props.product.get('id')
     const price = this.props.product.get('price')
+
     console.log(id, name, price, 'product summary print')
 
     return (
       <div className='product'>
-        <div> 
-        <h3>{name}</h3>
+        <div><h3>{name}</h3></div>
+        <div id='price'>{price}</div>
+        <div>
         <Link to={`/products/${id}`}>View Details</Link>
         </div>
       </div>

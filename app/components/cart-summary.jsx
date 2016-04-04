@@ -16,11 +16,12 @@ class CartSummary extends Component {
         <h4>Shopping Cart</h4>
         <div className='products'>
             {products.map((product, idx) => {
-              return <div key={idx}>{product.get('name')+ 'Qty'+ itemCount(this.      props.cart, product.get('id')
+              return <div key={idx}>{product.get('id')}
+            {/*} itemCount(this.props.cart, product.get('id')}*/}
                         <span></span>
-                        {product.get('name')} 
+                        {product.get('name')}
                         <span> </span>
-                        <button id="Add">+</button>
+                        {/*<button id="Add">+</button>*/}
                         <button id="Remove" onClick={removeProduct}>-</button>
                     </div>
               })}
@@ -29,8 +30,6 @@ class CartSummary extends Component {
     )
   }
 }
-
-
 
 function mapStateToProps(state) {
   return {
@@ -43,15 +42,14 @@ function mapStateToProps(dispatch) {
   return {
     removeProduct: (id) => {
       dispatch ({
-        type:'REMOVE_PRODUCT_FROM_CART'
-        id:parseInt(id)
+        type:'REMOVE_PRODUCT_FROM_CART',
+        id: parseInt(id)
       })
     }
   }
 }
 
-
-function itemCount(cart, id) {
+{/*function itemCount(cart, id) {
   var qty = 0
   for (var i=0; i<cart.size; i++) {
     if (cart.get(i) == id) {
@@ -60,7 +58,7 @@ function itemCount(cart, id) {
   }
   console.log(qty, 'here is quantity')
   return qty
-}
+}*/}
 
 
 export default connect(

@@ -18,7 +18,9 @@ class ProductDetail extends Component {
         <div> Detailed view of a product {name}</div>
         <div> The cost of this model is {price}</div>
         <div> Model {year}</div>
-        <div><a href='' onClick={addToCart}>Add to Cart</a></div>
+        <div>
+        <button class="Add"  onClick={addToCart}>ADD to cart</button></div>
+       {/*<a href='' onClick={addToCart}>Add to Cart</a></div>*/}
         <div><Link to='/'>View all</Link></div>
       </div>
     )
@@ -31,9 +33,6 @@ function mapStateToProps(state) {
   };
 }
 
-
-
-
 function mapDispatchToProps(dispatch) {
   return {
     addToCart: (id) => {
@@ -44,7 +43,6 @@ function mapDispatchToProps(dispatch) {
     }
   }
 }
-
 
 export default connect(
   mapStateToProps,

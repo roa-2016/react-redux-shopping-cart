@@ -8,17 +8,17 @@ const INITIAL_STATE = fromJS({
     {id: 4, name:'Dugati', price:5000,qty:0,  year:'2011'},
     {id: 5, name:'falcon', price:50000, qty:0, year:'2000'}
   ],
-  cart: [1,5,0]
+  cart: [1,5,2]
 })
 
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case 'ADD_PRODUCT_TO_CART':
       return state.set('cart', state.get('cart').push(action.id))
-    
-    case 'REMOVE_FROM_CART':
-      return state.set('cart', state.get('cart').slice(1, index).concat(action.slice[index]))
-    
+
+    case 'REMOVE_PRODUCT_FROM_CART':
+      return state.set('cart', state.get('cart').slice(0, index).concat(action.slice[index]))
+
     default:
       return state
   }

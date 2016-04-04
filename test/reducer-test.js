@@ -16,11 +16,23 @@ describe('Reducer', () => {
   describe('cart', () => {
     it('adds a product to the shopping cart', () => {
       const state = reducer(undefined, {
-        type: 'ADD_PRODUCT_TO_CART', 
+        type: 'ADD_PRODUCT_TO_CART',
         id: 3
       })
       expect(state.get('cart').size).to.equal(3)
       expect(state.get('cart')).to.include(3)
+    })
+  })
+})
+
+describe('cart', () => {
+    it('adds a product to the shopping cart', () => {
+      const state = reducer(undefined, {
+        type: 'REMOVE_PRODUCT_FROM_CART',
+        id: 3
+      })
+      expect(state.get('cart').size).to.equal(3)
+      expect(state.get('cart')).to.include(2)
     })
   })
 })
