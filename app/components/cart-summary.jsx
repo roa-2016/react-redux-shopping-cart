@@ -25,6 +25,11 @@ class CartSummary extends Component {
                         <button id="Remove" onClick={removeProduct}>-</button>
                     </div>
               })}
+              <div className='total'>
+                {products.reduce((sum, product) => {
+                  return sum + product.get('price') * itemCount(this.props.cart, product.get('id'))
+                }, 0)}
+              </div>
         </div>
       </div>
     )
