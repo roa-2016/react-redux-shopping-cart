@@ -7,20 +7,20 @@ class CartSummary extends Component {
       return this.props.cart.includes(p.get('id'))
     })
 
-    const removeProduct =(e,id) => {
-      e.preventDefault()
-      this.props.removeProduct(id)
-    }
+    
     return (
       <div id='cart'>
         <h4>Shopping Cart</h4>
         <div className='products'>
             {products.map((product, idx) => {
-              return <div key={idx}>{product.get('id')}
+              let removeProduct =(e,id) => {
+                e.preventDefault()
+                this.props.removeProduct(id)
+              }
+              return <div key={idx}>
             {/*} itemCount(this.props.cart, product.get('id')}*/}
-                        <span></span>
                         {product.get('name')}
-                        <span> </span>
+                        
                         {/*<button id="Add">+</button>*/}
                         <button id="Remove" onClick={removeProduct}>-</button>
                     </div>
@@ -38,7 +38,7 @@ function mapStateToProps(state) {
   };
 }
 
-function mapStateToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     removeProduct: (id) => {
       dispatch ({
@@ -62,5 +62,6 @@ function mapStateToProps(dispatch) {
 
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(CartSummary)

@@ -17,7 +17,7 @@ export default (state = INITIAL_STATE, action) => {
       return state.set('cart', state.get('cart').push(action.id))
 
     case 'REMOVE_PRODUCT_FROM_CART':
-      return state.set('cart', state.get('cart').slice(0, index).concat(action.slice[index]))
+      return state.set('cart', state.get('cart').delete(state.get('cart').indexOf(action.id)))
 
     default:
       return state
