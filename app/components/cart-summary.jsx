@@ -18,7 +18,7 @@ class CartSummary extends Component {
                 this.props.removeProduct(id)
               }
               return <div key={idx}>
-            {/*} itemCount(this.props.cart, product.get('id')}*/}
+                        {itemCount(this.props.cart, product.get('id'))}
                         {product.get('name')}
                         
                         {/*<button id="Add">+</button>*/}
@@ -59,6 +59,12 @@ function mapDispatchToProps(dispatch) {
   console.log(qty, 'here is quantity')
   return qty
 }*/}
+
+function itemCount(cart, id) {
+  return cart.filter(function(product) {
+    return product == id
+  }).size
+}
 
 
 export default connect(

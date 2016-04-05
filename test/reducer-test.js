@@ -22,6 +22,15 @@ describe('Reducer', () => {
       expect(state.get('cart').size).to.equal(3)
         expect(state.get('cart')).to.include(3)
     })
+    it('add multi items to the shopping cart', () => {
+      const prodId = 5
+      const state = reducer(undefined, {
+        type: 'ADD_PRODUCT_TO_CART',
+        id: prodId
+      })
+      expect(state.get('cart').size).to.equal(3)
+      expect(state.get('cart').filter(function(product){return product == prodId}).size).to.equal(2)
+    })
   })
 })
 
