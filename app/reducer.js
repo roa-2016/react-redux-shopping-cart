@@ -36,7 +36,7 @@ export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case 'ADD_PRODUCT_TO_CART':
       var state = state
-        .updateIn(['cart', action.id.toString()], 1, x => ++x)
+        .updateIn(['cart', action.id.toString()], 0, x => ++x)
       return state 
         .updateIn(['Total'], total)
       break;
@@ -53,30 +53,4 @@ export default (state = INITIAL_STATE, action) => {
       return state
         .updateIn(['Total'], total)
   }
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
