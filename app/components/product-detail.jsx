@@ -7,13 +7,17 @@ class ProductDetail extends Component {
     const {id} = this.props.params
     const product = this.props.products.filter(p => p.get('id') == id ).first()
     const name = product.get('name')
+    const price = product.get('price')
     const addToCart = (e) => {
       e.preventDefault()
       this.props.addToCart(id)
     }
     return (
       <div className='product' id={id}>
-        <div> Detailed view of a product {name}</div>
+        <div>
+          <p>This is {name}</p>
+          <p>Price: ${price}</p>
+        </div>
         <div><a href='' onClick={addToCart}>Add to Cart</a></div>
         <div><Link to='/'>View all</Link></div>
       </div>
