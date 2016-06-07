@@ -36,7 +36,7 @@ function mapDispatchToProps(dispatch) {
       })
     }
   }
-} // lets container component (ProductDetail) dispatch actions 
+} // lets container component (ProductDetail) dispatch
 
 
 export default connect(

@@ -12,13 +12,18 @@ const INITIAL_STATE = fromJS({
 })
 
 export default (state = INITIAL_STATE, action) => {
+
   switch(action.type) {
     case 'ADD_PRODUCT_TO_CART':
-
-      // let newCart = state.get('cart')
-      const productId = action.id.toString()
-
+      let productId = action.id.toString()
       return state.updateIn(['cart', productId], 1, x => x + 1)
+    case 'REMOVE_PRODUCT_FROM_CART':
+      return (state.get('cart').get(action.id.toString()) == 1) ? state.deleteIn(['cart',action.id.toString()])      
+      : state.updateIn(
+        ['cart', 
+        action.id.toString()], 
+        0, 
+        x => x===0 ? x: x - 1)
 
     default:
       return state

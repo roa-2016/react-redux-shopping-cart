@@ -1,22 +1,30 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import Button from './button.jsx'
 
 class CartSummary extends Component {
   render() {
-    // console.log(this.props.cart.has('1'))
     const products = this.props.products.filter( p => {
       return this.props.cart.has(p.get('id').toString())
     })
     const qtys = products.map( p => {
       return this.props.cart.get(p.get('id').toString())
     })
-    // console.log(products, qtys)
+    const removeFromCart = (productId) => {
+      this.props.removeFromCart(productId)
+    }
+
     return (
       <div id='cart'>
         <h4>Shopping Cart</h4>
         <div className='products'>
           {products.map((product, idx) => {
-            return <div key={idx}>{product.get('name')}: x{qtys.get(idx)}</div>
+            return (
+              <div key={idx}>
+                <p>{product.get('name')}: x{qtys.get(idx)}</p>
+                <Button handleClick={()=>  removeFromCart(product.get('id'))} />
+              </div>
+            )
           })}
         </div>
       </div>
@@ -31,8 +39,21 @@ function mapStateToProps(state) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    removeFromCart: (id) => { 
+      dispatch({
+        type: 'REMOVE_PRODUCT_FROM_CART',
+        id: parseInt(id)
+      })
+    }
+  }
+}
+
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(CartSummary)
 
 
