@@ -20,12 +20,13 @@ class CartSummary extends Component {
         <div className='products'>
           {products.map((product, idx) => {
             return (
-              <div key={idx}>
+              <div key={idx} id="items">
                 <p>{product.get('name')}: x{qtys.get(idx)}</p>
                 <Button handleClick={()=>  removeFromCart(product.get('id'))} />
               </div>
             )
           })}
+          <p>Total: {this.props.cart.get('Total')}</p>
         </div>
       </div>
     )

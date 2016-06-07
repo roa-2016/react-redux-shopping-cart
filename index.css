@@ -14,3 +14,16 @@ main {
   float: right;
 
 }
+
+#cart {
+	display: block;
+}
+
+
+#items {
+	display: block;
+}
+
+.products {
+	display: block;
+}
