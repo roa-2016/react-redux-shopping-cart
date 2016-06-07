@@ -26,7 +26,7 @@ class CartSummary extends Component {
               </div>
             )
           })}
-          <p>Total: {this.props.cart.get('Total')}</p>
+          <p>Total: ${this.props.total.toString()}</p>
         </div>
       </div>
     )
@@ -36,7 +36,8 @@ class CartSummary extends Component {
 function mapStateToProps(state) {
   return {
     products: state.get('products'),
-    cart: state.get('cart')
+    cart: state.get('cart'),
+    total: state.get('Total')
   };
 }
 
