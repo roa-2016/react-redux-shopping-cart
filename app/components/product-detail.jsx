@@ -32,14 +32,10 @@ class ProductDetail extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    products: state.get('products')
-  };
-}
+const mapStateToProps = (state) => ({products: state.get('products')})
 
-function mapDispatchToProps(dispatch) {
-  return {
+const mapDispatchToProps = (dispatch) => (
+  {
     addToCart: (id) => { 
       dispatch({
         type: 'ADD_PRODUCT_TO_CART',
@@ -47,7 +43,7 @@ function mapDispatchToProps(dispatch) {
       })
     }
   }
-} // lets container component (ProductDetail) dispatch
+)
 
 
 export default connect(

@@ -19,10 +19,6 @@ class ProductList extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    products: state.get('products')
-  };
-}
+const mapStateToProps = (state) => ({products: state.get('products')})
 
 export default connect(mapStateToProps)(ProductList)

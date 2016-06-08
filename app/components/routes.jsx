@@ -9,7 +9,6 @@ import Hello from './hello-world.jsx'
 
 export default (
   <Router>
-    <IndexRoute component={Hello}/>
 	  <Route path="/" component={Hello}/>
     <Route path='/products' component={ProductList}/>
     <Route path='/checkout' component={Checkout}/>

@@ -9,7 +9,7 @@ const INITIAL_STATE = fromJS({
     {id: 4, name:'car', price: 10.00},
     {id: 5, name:'falcon', price: 5.00}
   ],
-  cart: {1: 1},
+  cart: {},
   Total: 0
 })
 
@@ -18,21 +18,18 @@ export default (state = INITIAL_STATE, action) => {
   const total = () => {
     let total =0.00
     state.get('products')
-    .filter( p => {
-      return state.get('cart')
-        .has(p.get('id').toString())
-    })
-    .map( p => {
-      total += state.get('cart')
-        .get(p.get('id').toString())
-        * p.get('price')
-    })
+      .filter( p => {
+        return state.get('cart')
+          .has(p.get('id').toString())
+      })
+      .map( p => {
+        total += state.get('cart')
+          .get(p.get('id').toString())
+          * p.get('price')
+      })
     return total
   }
   
-  
-  console.log("total", total())
-
   switch(action.type) {
     case 'ADD_PRODUCT_TO_CART':
       var state = state
