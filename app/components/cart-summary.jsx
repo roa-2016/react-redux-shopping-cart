@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Button from './button.jsx'
+import { Link, browserHistory } from 'react-router'
 
 class CartSummary extends Component {
   render() {
@@ -28,6 +29,7 @@ class CartSummary extends Component {
           })}
           <p>Total: ${this.props.total.toString()}</p>
         </div>
+        <Link to={'/checkout/'}>Checkout</Link>
       </div>
     )
   }

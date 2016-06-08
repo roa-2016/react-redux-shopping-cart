@@ -1,18 +1,33 @@
-main {
+#product-page {
   text-align: center;
+  display: flex;
+  
 }
-#productList .product {
+#productList {
   margin-bottom:20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.product {
+  margin-right: auto;
+  margin-left: 500px;
+}
+
+#productList {
+	margin-right: auto;
+  margin-left: auto;
 }
 
 #main {
   width: 75%;
-  float: left;
 }
 #side {
   width: 25%;
-  float: right;
-
+  position: fixed;
+  top: 0;
+  right: 0;
+ 
 }
 
 #cart {
